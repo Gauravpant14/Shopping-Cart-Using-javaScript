@@ -1,0 +1,112 @@
+window.onload = list_item1.addEventListener('click', () =>{
+   for(let i=0 ; i<dataRecord.length ;i++){
+    if(itemData.innerHTML.includes(dataRecord[i].category == 'men clothing'))
+    { 
+      card1.forEach(e => {
+        e.style.display = "none"
+      });
+      card2.forEach(e => {
+        e.style.display = "none"
+      });
+      card3.forEach(e => {
+        e.style.display = "none"
+      });
+      card4.forEach(e => {
+        e.style.display = "none"
+      });
+    }
+  }
+  
+})
+
+
+window.onload = list_item2.addEventListener('click', () =>{
+  for(let i=0 ; i<dataRecord.length ;i++){
+   if(itemData.innerHTML.includes(dataRecord[i].category == 'women clothing'))
+   { 
+     
+     card1.forEach(e => {
+       e.style.display = "none"
+     });
+     card2.forEach(e => {
+      e.style.display = "none"
+    });
+     card3.forEach(e => {
+       e.style.display = "none"
+     });
+     card4.forEach(e => {
+       e.style.display = "none"
+     });
+   }
+ }
+ 
+})
+
+window.onload = list_item3.addEventListener('click', () =>{
+  for(let i=0 ; i<dataRecord.length ;i++){
+   if(itemData.innerHTML.includes(dataRecord[i].category == 'jewelery'))
+   { 
+     card0.forEach(e => {
+       e.style.display = "none"
+     });
+     card1.forEach(e => {
+       e.style.display = "none"
+     });
+     card3.forEach(e => {
+       e.style.display = "none"
+     });
+     card4.forEach(e => {
+       e.style.display = "none"
+     });
+   }
+ }
+ 
+})
+
+window.onload = list_item4.addEventListener('click', () =>{
+  for(let i=0 ; i<dataRecord.length ;i++){
+   if(itemData.innerHTML.includes(dataRecord[i].category == 'electronics'))
+   { 
+     card0.forEach(e => {
+       e.style.display = "none"
+     });
+     card1.forEach(e => {
+       e.style.display = "none"
+     });
+     card2.forEach(e => {
+       e.style.display = "none"
+     });
+     card4.forEach(e => {
+       e.style.display = "none"
+     });
+   }
+ }
+ 
+})
+
+
+//new method
+
+for (let i = 0; i < addTocardBtn.length; i++) {
+  addTocardBtn[i].addEventListener("click", (e) => {
+    let arrItem = {
+      ID: i + 1,
+      Title: e.target.parentElement.children[0].innerText,
+      Price: e.target.parentElement.children[2].innerText,
+    };
+
+    cartArray.push(arrItem);
+
+    x += "<tr>";
+    x += "<td>" + arrItem.ID + "</td>";
+    x += "<td>" + arrItem.Title + "</td>";
+    x += "<td>" + arrItem.Price + "</td></tr>";
+
+    //
+    // cartArray.forEach((t) => {
+      
+    // });
+    modalData.innerHTML = x;
+    counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart"></i>  `;
+  });
+}

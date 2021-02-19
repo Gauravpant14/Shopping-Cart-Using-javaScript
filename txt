@@ -110,3 +110,8 @@ for (let i = 0; i < addTocardBtn.length; i++) {
     counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart"></i>  `;
   });
 }
+
+
+
+<span id="add"><i class="fas fa-plus"></i></span>
+    <span id="minus"><i class="fas fa-minus"></i></span>

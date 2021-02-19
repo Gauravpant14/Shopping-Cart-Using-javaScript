@@ -204,23 +204,22 @@ categories.innerHTML = `
 </ul>
 </div> `;
 
-// let list_item1 = document.getElementById("li1");
-// let list_item2 = document.getElementById("li2");
-// let list_item3 = document.getElementById("li3");
-// let list_item4 = document.getElementById("li4");
+let list_item1 = document.getElementById("li1");
+let list_item2 = document.getElementById("li2");
+let list_item3 = document.getElementById("li3");
+let list_item4 = document.getElementById("li4");
 
 for (let i = 0; i < dataRecord.length; i++) {
   var board = document.createElement("div");
-  board.innerHTML = `<div class="card" style="width: 17rem;  ">
+  board.innerHTML = `<div class="card${Math.floor(i/4)}" style="width: 17rem;  ">
     <img class="card-img-top" src="${dataRecord[i].image}" height="100" alt="Card image cap">
-    <div class="card-body">
+    <div class="card-body text-center">
     <h3 class="card-title">${dataRecord[i].title}</h3>
-    <h4> category: ${dataRecord[i].category} </h4>
-    <h4><span> Price :</span> ${dataRecord[i].price} </h4>
+    <h5> Category: ${dataRecord[i].category} </h5>
+    <h4>${dataRecord[i].price} </h4>
     <button class="add-Item" id="item${dataRecord[i].id}">Add To Cart</button>
-    <span id="counter"> <i class="fas fa-shopping-cart"></i></span>
-    <span id="add"><i class="fas fa-plus"></i></span>
-    <span id="minus"><i class="fas fa-minus"></i></span>
+    
+    
     </div>
     
    
@@ -232,6 +231,14 @@ for (let i = 0; i < dataRecord.length; i++) {
   board.className = "allDiv";
   itemData.appendChild(board);
 }
+
+let card0 =document.querySelectorAll(".card0");
+let card1 =document.querySelectorAll(".card1");
+let card2 =document.querySelectorAll(".card2");
+let card3 =document.querySelectorAll(".card3");
+let card4 =document.querySelectorAll(".card4");
+
+
 
 let addTocardBtn = document.querySelectorAll(".add-Item");
 let counterDiv = document.getElementById("counter");
@@ -247,13 +254,13 @@ var cartArray = [];
 //     console.log(cartArray);
 // });
 
-minusBtn.addEventListener("click", () => {
-  counterDiv.innerHTML = `${--counter} <i class="fas fa-shopping-cart"></i>  `;
-});
+// minusBtn.addEventListener("click", () => {
+//   counterDiv.innerHTML = `${--counter} <i class="fas fa-shopping-cart"></i>  `;
+// });
 
-addBtn.addEventListener("click", () => {
-  counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart"></i>  `;
-});
+// addBtn.addEventListener("click", () => {
+//   counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart"></i>  `;
+// });
 
 // let x = ""
 
@@ -276,6 +283,33 @@ for (let i = 0; i < addTocardBtn.length; i++) {
       x += "<td>" + t.Price + "</td></tr>";
     });
     modalData.innerHTML = x;
-    counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart"></i>  `;
+    counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart" style="color: aliceblue;"></i>  `;
   });
 }
+
+window.onload = list_item1.addEventListener('click', () =>{
+  for(let i=0 ; i<dataRecord.length ;i++){
+   if(itemData.innerHTML.search(dataRecord[i].category == 'Men Clothing'))
+   { 
+     card0.forEach(e => {
+       e.style.display = "block"
+     });
+     card1.forEach(e => {
+       e.style.display = "none"
+     });
+     card2.forEach(e => {
+       e.style.display = "none"
+     });
+     card3.forEach(e => {
+       e.style.display = "none"
+     });
+     card4.forEach(e => {
+      e.style.display = "none"
+    });
+   }
+ }
+ 
+})
+
+
+

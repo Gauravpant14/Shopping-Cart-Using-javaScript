@@ -36,6 +36,10 @@ padding: 10px;
 .ourCat ul li a{
     text-decoration: none;
     color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    background: #5c78ad
 }
 
 .allItems{
@@ -108,4 +112,14 @@ padding: 10px;
     text-align: left;
     background-color: #3e6fca;
     color: white;
+  }
+
+  .add-Item{
+    padding: 5px 65px;
+    background: bisque;
+    border-radius: 10px;
+  }
+
+  .card-img-top{
+      padding: 15px;
   }

@@ -193,10 +193,12 @@ let productBtn = document.getElementById("pBtn");
 let cartBtn = document.getElementById("cBtn");
 let modalData = document.getElementById("data");
 
+//creting categories
+
 categories.innerHTML = ` 
 <div class="ourCat">
 <ul>
-<li><a href="#" id="li1">Men Clothing</a> </li>
+<li><a href="#" id="li1" onClick="menCloth()">Men Clothing</a> </li>
 <li><a href="#" id="li2">Women Clothing</a></li>
 <li><a href="#" id="li3">Jewelery</a></li>
 <li><a href="#" id="li4">Electronics</a></li>
@@ -209,10 +211,16 @@ let list_item2 = document.getElementById("li2");
 let list_item3 = document.getElementById("li3");
 let list_item4 = document.getElementById("li4");
 
+//fatch records from array to html
+
 for (let i = 0; i < dataRecord.length; i++) {
   var board = document.createElement("div");
-  board.innerHTML = `<div class="card${Math.floor(i/4)}" style="width: 17rem;  ">
-    <img class="card-img-top" src="${dataRecord[i].image}" height="100" alt="Card image cap">
+  board.innerHTML = `<div class="card${Math.floor(
+    i / 4
+  )}" style="width: 17rem;  ">
+    <img class="card-img-top" src="${
+      dataRecord[i].image
+    }" height="100" alt="Card image cap">
     <div class="card-body text-center">
     <h3 class="card-title">${dataRecord[i].title}</h3>
     <h5> Category: ${dataRecord[i].category} </h5>
@@ -225,20 +233,18 @@ for (let i = 0; i < dataRecord.length; i++) {
    
     
    
-    
+    li2
     </div>
     </div>`;
   board.className = "allDiv";
   itemData.appendChild(board);
 }
 
-let card0 =document.querySelectorAll(".card0");
-let card1 =document.querySelectorAll(".card1");
-let card2 =document.querySelectorAll(".card2");
-let card3 =document.querySelectorAll(".card3");
-let card4 =document.querySelectorAll(".card4");
-
-
+let card0 = document.querySelectorAll(".card0");
+let card1 = document.querySelectorAll(".card1");
+let card2 = document.querySelectorAll(".card2");
+let card3 = document.querySelectorAll(".card3");
+let card4 = document.querySelectorAll(".card4");
 
 let addTocardBtn = document.querySelectorAll(".add-Item");
 let counterDiv = document.getElementById("counter");
@@ -253,7 +259,7 @@ var cartArray = [];
 //     cartArray.push(z);
 //     console.log(cartArray);
 // });
-
+li2;
 // minusBtn.addEventListener("click", () => {
 //   counterDiv.innerHTML = `${--counter} <i class="fas fa-shopping-cart"></i>  `;
 // });
@@ -263,6 +269,8 @@ var cartArray = [];
 // });
 
 // let x = ""
+
+//enter items into cart items
 
 for (let i = 0; i < addTocardBtn.length; i++) {
   addTocardBtn[i].addEventListener("click", (e) => {
@@ -277,39 +285,70 @@ for (let i = 0; i < addTocardBtn.length; i++) {
     x = "";
     //
     cartArray.forEach((t) => {
-      x += "<tr>";
-      x += "<td>" + t.ID + "</td>";
-      x += "<td>" + t.Title + "</td>";
-      x += "<td>" + t.Price + "</td></tr>";
+      x += ` <tr>
+      <td>  ${t.ID}  </td>
+      <td>  ${t.Title} </td>
+      <td class="totalAmount" > ${t.Price} </td></tr>`;
     });
     modalData.innerHTML = x;
     counterDiv.innerHTML = `${counter++} <i class="fas fa-shopping-cart" style="color: aliceblue;"></i>  `;
   });
 }
 
-window.onload = list_item1.addEventListener('click', () =>{
-  for(let i=0 ; i<dataRecord.length ;i++){
-   if(itemData.innerHTML.search(dataRecord[i].category == 'Men Clothing'))
-   { 
-     card0.forEach(e => {
-       e.style.display = "block"
-     });
-     card1.forEach(e => {
-       e.style.display = "none"
-     });
-     card2.forEach(e => {
-       e.style.display = "none"
-     });
-     card3.forEach(e => {
-       e.style.display = "none"
-     });
-     card4.forEach(e => {
-      e.style.display = "none"
-    });
-   }
- }
- 
-})
+// cartArray.splice(index,1);
 
+// funtion for finding out total balance
 
+function totalBal() {
+  var sum = 0;
+  var table = document.getElementById("table");
+  var ths = table.getElementsByTagName("th");
+  var tds = table.getElementsByClassName("totalAmount");
+  for (var i = 0; i < tds.length; i++) {
+    sum += isNaN(tds[i].innerText) ? 0 : parseInt(tds[i].innerText);
+  }
 
+  alert("Your Total Bill : " + sum + " $");
+  // var row = table.insertRow(table.rows.length);
+  // var cell = row.insertCell(0);
+  // cell.setAttribute("colspan", ths.length);
+  // cell.className = "balClass";
+
+  // var totalBalance = document.createTextNode("Total Balance : " + sum + " Rupess");
+  // cell.appendChild(totalBalance);
+}
+
+//hide and show according to category
+
+function menCloth() {
+  cat1Text = list_item1.innerText;
+  var filterData = dataRecord.filter((e) => {
+    return e.category === cat1Text.toLowerCase();
+  });
+  for (let i = 0; i < filterData.length; i++) {
+    var board = document.createElement("div");
+    board.innerHTML = `<div class="card${Math.floor(
+      i / 4
+    )}" style="width: 17rem;  ">
+    <img class="card-img-top" src="${
+      dataRecord[i].image
+    }" height="100" alt="Card image cap">
+    <div class="card-body text-center">
+    <h3 class="card-title">${dataRecord[i].title}</h3>
+    <h5> Category: ${dataRecord[i].category} </h5>
+    <h4>${dataRecord[i].price} </h4>
+    <button class="add-Item" id="item${dataRecord[i].id}">Add To Cart</button>
+    
+    
+    </div>
+    
+   
+    
+   
+    li2
+    </div>
+    </div>`;
+    board.className = "allDiv";
+    itemData.appendChild(board);
+  }
+}

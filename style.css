@@ -123,3 +123,8 @@ padding: 10px;
   .card-img-top{
       padding: 15px;
   }
+
+
+  .balClass{
+      text-align: end;
+  }

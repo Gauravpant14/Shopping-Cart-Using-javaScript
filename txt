@@ -33,9 +33,50 @@ window.onload = list_item2.addEventListener('click', () =>{
     });
      card3.forEach(e => {
        e.style.display = "none"
-     });
-     card4.forEach(e => {
-       e.style.display = "none"
+     });window.onload = list_item1.addEventListener("click", () => {
+  for (let i = 0; i < dataRecord.length; i++) {
+    if (itemData.innerHTML.search(dataRecord[i].category == "Men Clothing")) {
+      card0.forEach((e) => {
+        e.style.display = "block";
+      });
+      card1.forEach((e) => {
+        e.style.display = "none";
+      });
+      card2.forEach((e) => {
+        e.style.display = "none";
+      });
+      card3.forEach((e) => {
+        e.style.display = "none";
+      });
+      card4.forEach((e) => {
+        e.style.display = "none";
+      });
+    }
+  }
+});
+
+list_item2.addEventListener("click", () => {
+  for (let i = 0; i < dataRecord.length; i++) {
+    if (itemData.innerHTML.search(dataRecord[i].category == "Men Clothing")) {
+      card0.forEach((e) => {
+        e.style.display = "none";
+      });
+      card1.forEach((e) => {
+        e.style.display = "none";
+      });
+      card2.forEach((e) => {
+        e.style.display = "none";
+      });
+      card3.forEach((e) => {
+        e.style.display = "block";
+      });
+      card4.forEach((e) => {
+        e.style.display = "none";
+      });
+    }
+  }
+});
+e.display = "none"
      });
    }
  }
@@ -114,4 +155,52 @@ for (let i = 0; i < addTocardBtn.length; i++) {
 
 
 <span id="add"><i class="fas fa-plus"></i></span>
-    <span id="minus"><i class="fas fa-minus"></i></span>
+    <span id="minus"><i class="fas fa-minus"></i></span>\
+
+
+
+
+    ///
+    window.onload = list_item1.addEventListener("click", () => {
+  for (let i = 0; i < dataRecord.length; i++) {
+    if (itemData.innerHTML.search(dataRecord[i].category == "Men Clothing")) {
+      card0.forEach((e) => {
+        e.style.display = "block";
+      });
+      card1.forEach((e) => {
+        e.style.display = "none";
+      });
+      card2.forEach((e) => {
+        e.style.display = "none";
+      });
+      card3.forEach((e) => {
+        e.style.display = "none";
+      });
+      card4.forEach((e) => {
+        e.style.display = "none";
+      });
+    }
+  }
+});
+
+list_item2.addEventListener("click", () => {
+  for (let i = 0; i < dataRecord.length; i++) {
+    if (itemData.innerHTML.search(dataRecord[i].category == "Men Clothing")) {
+      card0.forEach((e) => {
+        e.style.display = "none";
+      });
+      card1.forEach((e) => {
+        e.style.display = "none";
+      });
+      card2.forEach((e) => {
+        e.style.display = "none";
+      });
+      card3.forEach((e) => {
+        e.style.display = "block";
+      });
+      card4.forEach((e) => {
+        e.style.display = "none";
+      });
+    }
+  }
+});
